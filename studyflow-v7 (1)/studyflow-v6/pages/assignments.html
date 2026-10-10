@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0f1a33">
+<title>StudyFlow | Assignments</title>
+<link rel="stylesheet" href="../css/main.css">
+<script defer src="../js/storage.js"></script>
+<script defer src="../js/app.js"></script>
+</head>
+<body data-page="assignments">
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><span class="brand-mark">✦</span><span>StudyFlow<small>your academic space</small></span></div>
+    <div class="nav-label">Workspace</div>
+    <nav class="nav-list"><a class="nav-link" href="../index.html"><span class="nav-icon">⌂</span>Dashboard</a><a class="nav-link" href="courses.html"><span class="nav-icon">▤</span>Courses</a><a class="nav-link" href="timetable.html"><span class="nav-icon">▦</span>Timetable</a><a class="nav-link" href="study-room.html"><span class="nav-icon">◷</span>Study Room</a><a class="nav-link" href="analytics.html"><span class="nav-icon">▥</span>Analytics</a><a class="nav-link active" href="assignments.html"><span class="nav-icon">☷</span>Assignments</a><a class="nav-link" href="notes.html"><span class="nav-icon">✎</span>Notes & Journal</a><a class="nav-link" href="settings.html"><span class="nav-icon">⚙</span>Settings</a></nav>
+    <div class="sidebar-bottom"><strong>Small steps count.</strong>Your data is saved in this browser. Export a backup in Settings.</div>
+  </aside>
+  <div class="main-area">
+    <header class="topbar">
+      <div class="top-actions"><button class="button secondary mobile-menu" id="menu-toggle" aria-label="Open menu">☰</button><div class="crumb">StudyFlow / <strong>Assignments</strong></div></div>
+      <div class="top-actions"><span class="date-label muted small-text" id="today-label"></span><div class="avatar" id="avatar">S</div></div>
+    </header>
+    <main class="page-content">
+      <div class="page-heading"><div><div class="eyebrow" id="semester"></div><h1>Assignments</h1><p>Capture every deadline before it sneaks up on you.</p></div></div>
+      <div id="global-message" class="notice hidden" role="status"></div>
+<div class="grid two-col">
+  <section class="card"><div class="section-row"><h2>Task list</h2><select class="control" id="assignment-filter" style="max-width:150px"><option value="open">Open tasks</option><option value="all">All tasks</option><option value="done">Completed</option></select></div><div id="assignment-list"></div></section>
+  <section class="card">
+    <h2>Add an assignment</h2>
+    <form id="assignment-form" class="stack">
+      <div class="field"><label for="assignment-title">Title *</label><input id="assignment-title" required placeholder="e.g. Algorithms problem set"></div>
+      <div class="form-grid">
+        <div class="field"><label for="assignment-course">Course</label><select id="assignment-course"><option value="">No course</option></select></div>
+        <div class="field"><label for="assignment-due">Due date</label><input id="assignment-due" type="date"></div>
+        <div class="field"><label for="assignment-priority">Priority</label><select id="assignment-priority"><option>Normal</option><option>High</option><option>Urgent</option><option>Low</option></select></div>
+        <div class="field"><label for="assignment-type">Type</label><select id="assignment-type"><option>Assignment</option><option>Quiz</option><option>Exam</option><option>Project</option><option>Reading</option><option>Other</option></select></div>
+      </div>
+      <div class="field"><label for="assignment-details">Details</label><textarea id="assignment-details" placeholder="Requirements, links to remember, or next steps"></textarea></div>
+      <button class="button" type="submit">Save assignment</button>
+    </form>
+  </section>
+</div>
+<template id="tpl-task"><div class="item-row"><div style="min-width:0"><div class="item-title" data-b="title"></div><div class="item-sub" data-b="sub"></div><div class="item-sub" data-b="details" data-opt></div><div style="margin-top:7px"><span class="pill" data-b="priority"></span> <span class="pill" data-b="status"></span></div></div><div class="stack"><button class="button secondary small" data-task="toggle" data-id="" data-b="toggle"></button><button class="button danger small" data-task="delete" data-id="">Delete</button></div></div></template>
+      <div class="footer-note">StudyFlow · Your data stays in this browser unless you export it.</div>
+    </main>
+  </div>
+</div>
+<template id="tpl-empty"><div class="empty-state"><div class="empty-icon" data-b="icon"></div><strong data-b="title"></strong><span data-b="text"></span></div></template>
+<template id="tpl-session"><div class="item-row"><div><div class="item-title" data-b="title"></div><div class="item-sub" data-b="sub"></div></div><span class="pill green" data-b="dur"></span></div></template>
+</body>
+</html>

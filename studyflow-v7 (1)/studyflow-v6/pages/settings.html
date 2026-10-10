@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0f1a33">
+<title>StudyFlow | Settings</title>
+<link rel="stylesheet" href="../css/main.css">
+<script defer src="../js/storage.js"></script>
+<script defer src="../js/app.js"></script>
+</head>
+<body data-page="settings">
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><span class="brand-mark">✦</span><span>StudyFlow<small>your academic space</small></span></div>
+    <div class="nav-label">Workspace</div>
+    <nav class="nav-list"><a class="nav-link" href="../index.html"><span class="nav-icon">⌂</span>Dashboard</a><a class="nav-link" href="courses.html"><span class="nav-icon">▤</span>Courses</a><a class="nav-link" href="timetable.html"><span class="nav-icon">▦</span>Timetable</a><a class="nav-link" href="study-room.html"><span class="nav-icon">◷</span>Study Room</a><a class="nav-link" href="analytics.html"><span class="nav-icon">▥</span>Analytics</a><a class="nav-link" href="assignments.html"><span class="nav-icon">☷</span>Assignments</a><a class="nav-link" href="notes.html"><span class="nav-icon">✎</span>Notes & Journal</a><a class="nav-link active" href="settings.html"><span class="nav-icon">⚙</span>Settings</a></nav>
+    <div class="sidebar-bottom"><strong>Small steps count.</strong>Your data is saved in this browser. Export a backup in Settings.</div>
+  </aside>
+  <div class="main-area">
+    <header class="topbar">
+      <div class="top-actions"><button class="button secondary mobile-menu" id="menu-toggle" aria-label="Open menu">☰</button><div class="crumb">StudyFlow / <strong>Settings</strong></div></div>
+      <div class="top-actions"><span class="date-label muted small-text" id="today-label"></span><div class="avatar" id="avatar">S</div></div>
+    </header>
+    <main class="page-content">
+      <div class="page-heading"><div><div class="eyebrow" id="semester"></div><h1>Settings</h1><p>Make StudyFlow work the way you do.</p></div></div>
+      <div id="global-message" class="notice hidden" role="status"></div>
+<div class="grid two-col">
+  <section class="card">
+    <h2>Your preferences</h2>
+    <form id="settings-form" class="stack">
+      <div class="field"><label for="display-name">Display name</label><input id="display-name" maxlength="60"></div>
+      <div class="field"><label for="semester-name">Semester label</label><input id="semester-name" maxlength="80" placeholder="e.g. Semester 1"></div>
+      <div class="field"><label for="weekly-target">Weekly study target (hours)</label><input id="weekly-target" type="number" min="1" max="100" required></div>
+      <div class="field"><label for="theme-setting">Appearance</label><select id="theme-setting"><option value="light">Light</option><option value="dark">Dark</option></select></div>
+      <button class="button" type="submit">Save preferences</button>
+    </form>
+  </section>
+  <section class="card">
+    <h2>Backup &amp; restore</h2>
+    <p class="muted small-text">Export a JSON backup of your courses, assignments, notes, sessions, timetable and settings.</p>
+    <div class="stack">
+      <button class="button" id="backup-export">↓ Export backup</button>
+      <label class="button secondary" for="backup-file" style="text-align:center">↑ Import backup</label>
+      <input class="hidden" id="backup-file" type="file" accept="application/json,.json">
+      <button class="button danger" id="reset-data">Reset all StudyFlow data</button>
+    </div>
+    <div class="notice" style="margin-top:18px">Your data lives in this browser and does not sync to other devices.</div>
+    <h3 style="margin-top:25px">Data stored locally</h3><div id="storage-summary"></div>
+  </section>
+</div>
+<template id="tpl-store"><div class="item-row"><span class="item-title" data-b="key"></span><span class="pill" data-b="count"></span></div></template>
+      <div class="footer-note">StudyFlow · Your data stays in this browser unless you export it.</div>
+    </main>
+  </div>
+</div>
+<template id="tpl-empty"><div class="empty-state"><div class="empty-icon" data-b="icon"></div><strong data-b="title"></strong><span data-b="text"></span></div></template>
+<template id="tpl-session"><div class="item-row"><div><div class="item-title" data-b="title"></div><div class="item-sub" data-b="sub"></div></div><span class="pill green" data-b="dur"></span></div></template>
+</body>
+</html>

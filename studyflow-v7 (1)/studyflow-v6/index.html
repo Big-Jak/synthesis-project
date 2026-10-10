@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0f1a33">
+<title>StudyFlow | Dashboard</title>
+<link rel="stylesheet" href="css/main.css">
+<script defer src="js/storage.js"></script>
+<script defer src="js/app.js"></script>
+</head>
+<body data-page="dashboard">
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><span class="brand-mark">✦</span><span>StudyFlow<small>your academic space</small></span></div>
+    <div class="nav-label">Workspace</div>
+    <nav class="nav-list"><a class="nav-link active" href="index.html"><span class="nav-icon">⌂</span>Dashboard</a><a class="nav-link" href="pages/courses.html"><span class="nav-icon">▤</span>Courses</a><a class="nav-link" href="pages/timetable.html"><span class="nav-icon">▦</span>Timetable</a><a class="nav-link" href="pages/study-room.html"><span class="nav-icon">◷</span>Study Room</a><a class="nav-link" href="pages/analytics.html"><span class="nav-icon">▥</span>Analytics</a><a class="nav-link" href="pages/assignments.html"><span class="nav-icon">☷</span>Assignments</a><a class="nav-link" href="pages/notes.html"><span class="nav-icon">✎</span>Notes & Journal</a><a class="nav-link" href="pages/settings.html"><span class="nav-icon">⚙</span>Settings</a></nav>
+    <div class="sidebar-bottom"><strong>Small steps count.</strong>Your data is saved in this browser. Export a backup in Settings.</div>
+  </aside>
+  <div class="main-area">
+    <header class="topbar">
+      <div class="top-actions"><button class="button secondary mobile-menu" id="menu-toggle" aria-label="Open menu">☰</button><div class="crumb">StudyFlow / <strong>Dashboard</strong></div></div>
+      <div class="top-actions"><span class="date-label muted small-text" id="today-label"></span><div class="avatar" id="avatar">S</div></div>
+    </header>
+    <main class="page-content">
+      
+      <div id="global-message" class="notice hidden" role="status"></div>
+<section class="hero">
+  <div><h1 id="hero-title"></h1><p id="hero-line"></p>
+    <div class="hero-actions"><a class="button hl" href="pages/study-room.html">Start a session</a><a class="button ghost" href="pages/timetable.html">Plan my week</a></div></div>
+  <div class="hero-side">
+    <div class="hero-ring"><div class="ring" id="hero-ring"><b id="hero-pct">0%</b></div><span><strong id="hero-done"></strong><span id="hero-of"></span></span></div>
+    <div class="bars" id="hero-bars"><div><i></i>M</div><div><i></i>T</div><div><i></i>W</div><div><i></i>T</div><div><i></i>F</div><div><i></i>S</div><div><i></i>S</div></div>
+  </div>
+</section>
+<section class="grid stats-grid"><article class="card stat-card"><div class="stat-icon">▤</div><div class="stat-label">Courses</div><div class="stat-value" id="stat-courses">--</div><div class="stat-note" id="stat-courses-note"></div></article><article class="card stat-card"><div class="stat-icon">◷</div><div class="stat-label">Study time this week</div><div class="stat-value" id="stat-week">--</div><div class="stat-note" id="stat-week-note"></div></article><article class="card stat-card"><div class="stat-icon">☷</div><div class="stat-label">Open assignments</div><div class="stat-value" id="stat-open">--</div><div class="stat-note" id="stat-open-note"></div></article><article class="card stat-card"><div class="stat-icon">↗</div><div class="stat-label">Average recorded score</div><div class="stat-value" id="stat-avg">--</div><div class="stat-note" id="stat-avg-note"></div></article></section>
+<section class="grid two-col">
+  <article class="card">
+    <div class="section-row"><h2>This week</h2><a href="pages/analytics.html" class="small-text">View analytics</a></div>
+    <div class="item-row"><div><div class="item-title">Weekly study target</div><div class="item-sub" id="week-text"></div></div><strong id="week-pct"></strong></div>
+    <div class="progress-track"><div class="progress-fill" id="week-fill"></div></div>
+    <div class="section-row" style="margin-top:24px"><h2>Upcoming deadlines</h2><a href="pages/assignments.html" class="small-text">All assignments</a></div>
+    <div id="deadline-list"></div>
+  </article>
+  <article class="card">
+    <div class="section-row"><h2>Quick actions</h2></div>
+    <div class="stack">
+      <a class="button" href="pages/study-room.html" style="text-align:center">◷ Start a study session</a>
+      <a class="button secondary" href="pages/courses.html" style="text-align:center">＋ Add or update a course</a>
+      <a class="button secondary" href="pages/assignments.html" style="text-align:center">☷ Add an assignment</a>
+      <a class="button secondary" href="pages/timetable.html" style="text-align:center">▦ Build my timetable</a>
+    </div>
+    <div style="margin-top:22px"><div class="item-title">A gentle reminder</div><p class="muted small-text">A plan is a guide, not a courtroom. Adjust it when your week changes.</p></div>
+  </article>
+</section>
+<section class="card" style="margin-top:18px">
+  <div class="section-row"><h2>Recent study sessions</h2><a href="pages/analytics.html" class="small-text">See history</a></div>
+  <div id="recent-list"></div>
+</section>
+<template id="tpl-deadline"><div class="item-row"><div><div class="item-title" data-b="title"></div><div class="item-sub" data-b="sub"></div></div><span class="pill" data-b="priority"></span></div></template>
+      <div class="footer-note">StudyFlow · Your data stays in this browser unless you export it.</div>
+    </main>
+  </div>
+</div>
+<template id="tpl-empty"><div class="empty-state"><div class="empty-icon" data-b="icon"></div><strong data-b="title"></strong><span data-b="text"></span></div></template>
+<template id="tpl-session"><div class="item-row"><div><div class="item-title" data-b="title"></div><div class="item-sub" data-b="sub"></div></div><span class="pill green" data-b="dur"></span></div></template>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0f1a33">
+<title>StudyFlow | Analytics</title>
+<link rel="stylesheet" href="../css/main.css">
+<script defer src="../js/storage.js"></script>
+<script defer src="../js/app.js"></script>
+</head>
+<body data-page="analytics">
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><span class="brand-mark">✦</span><span>StudyFlow<small>your academic space</small></span></div>
+    <div class="nav-label">Workspace</div>
+    <nav class="nav-list"><a class="nav-link" href="../index.html"><span class="nav-icon">⌂</span>Dashboard</a><a class="nav-link" href="courses.html"><span class="nav-icon">▤</span>Courses</a><a class="nav-link" href="timetable.html"><span class="nav-icon">▦</span>Timetable</a><a class="nav-link" href="study-room.html"><span class="nav-icon">◷</span>Study Room</a><a class="nav-link active" href="analytics.html"><span class="nav-icon">▥</span>Analytics</a><a class="nav-link" href="assignments.html"><span class="nav-icon">☷</span>Assignments</a><a class="nav-link" href="notes.html"><span class="nav-icon">✎</span>Notes & Journal</a><a class="nav-link" href="settings.html"><span class="nav-icon">⚙</span>Settings</a></nav>
+    <div class="sidebar-bottom"><strong>Small steps count.</strong>Your data is saved in this browser. Export a backup in Settings.</div>
+  </aside>
+  <div class="main-area">
+    <header class="topbar">
+      <div class="top-actions"><button class="button secondary mobile-menu" id="menu-toggle" aria-label="Open menu">☰</button><div class="crumb">StudyFlow / <strong>Analytics</strong></div></div>
+      <div class="top-actions"><span class="date-label muted small-text" id="today-label"></span><div class="avatar" id="avatar">S</div></div>
+    </header>
+    <main class="page-content">
+      <div class="page-heading"><div><div class="eyebrow" id="semester"></div><h1>Analytics</h1><p>See where your study time and effort are going.</p></div></div>
+      <div id="global-message" class="notice hidden" role="status"></div>
+<section class="grid stats-grid"><article class="card stat-card"><div class="stat-icon">◷</div><div class="stat-label">Total recorded</div><div class="stat-value" id="stat-total">--</div><div class="stat-note" id="stat-total-note"></div></article><article class="card stat-card"><div class="stat-icon">▦</div><div class="stat-label">This week</div><div class="stat-value" id="stat-week">--</div><div class="stat-note" id="stat-week-note"></div></article><article class="card stat-card"><div class="stat-icon">▤</div><div class="stat-label">Courses tracked</div><div class="stat-value" id="stat-courses">--</div><div class="stat-note" id="stat-courses-note"></div></article><article class="card stat-card"><div class="stat-icon">↗</div><div class="stat-label">Average session</div><div class="stat-value" id="stat-avg">--</div><div class="stat-note" id="stat-avg-note"></div></article></section>
+<section class="grid two-col">
+  <article class="card"><h2>Study time by course</h2><div id="course-time"></div></article>
+  <article class="card"><h2>Study history</h2>
+    <div class="table-wrap"><table><thead><tr><th>Date</th><th>Course</th><th>Time</th></tr></thead><tbody id="history-body"></tbody></table></div>
+    <div class="form-actions"><button class="button secondary" id="export-csv">Export sessions CSV</button></div>
+  </article>
+</section>
+<template id="tpl-percourse"><div class="item-row"><div style="flex:1"><div class="item-title" data-b="name"></div><div class="item-sub" data-b="sub"></div><div class="progress-track" style="margin-top:8px"><div class="progress-fill" data-w="share"></div></div></div></div></template>
+<template id="tpl-history"><table><tr><td data-b="date"></td><td data-b="course"></td><td data-b="dur"></td></tr></table></template>
+      <div class="footer-note">StudyFlow · Your data stays in this browser unless you export it.</div>
+    </main>
+  </div>
+</div>
+<template id="tpl-empty"><div class="empty-state"><div class="empty-icon" data-b="icon"></div><strong data-b="title"></strong><span data-b="text"></span></div></template>
+<template id="tpl-session"><div class="item-row"><div><div class="item-title" data-b="title"></div><div class="item-sub" data-b="sub"></div></div><span class="pill green" data-b="dur"></span></div></template>
+</body>
+</html>

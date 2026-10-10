@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0f1a33">
+<title>StudyFlow | Notes &amp; Journal</title>
+<link rel="stylesheet" href="../css/main.css">
+<script defer src="../js/storage.js"></script>
+<script defer src="../js/app.js"></script>
+</head>
+<body data-page="notes">
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><span class="brand-mark">✦</span><span>StudyFlow<small>your academic space</small></span></div>
+    <div class="nav-label">Workspace</div>
+    <nav class="nav-list"><a class="nav-link" href="../index.html"><span class="nav-icon">⌂</span>Dashboard</a><a class="nav-link" href="courses.html"><span class="nav-icon">▤</span>Courses</a><a class="nav-link" href="timetable.html"><span class="nav-icon">▦</span>Timetable</a><a class="nav-link" href="study-room.html"><span class="nav-icon">◷</span>Study Room</a><a class="nav-link" href="analytics.html"><span class="nav-icon">▥</span>Analytics</a><a class="nav-link" href="assignments.html"><span class="nav-icon">☷</span>Assignments</a><a class="nav-link active" href="notes.html"><span class="nav-icon">✎</span>Notes & Journal</a><a class="nav-link" href="settings.html"><span class="nav-icon">⚙</span>Settings</a></nav>
+    <div class="sidebar-bottom"><strong>Small steps count.</strong>Your data is saved in this browser. Export a backup in Settings.</div>
+  </aside>
+  <div class="main-area">
+    <header class="topbar">
+      <div class="top-actions"><button class="button secondary mobile-menu" id="menu-toggle" aria-label="Open menu">☰</button><div class="crumb">StudyFlow / <strong>Notes & Journal</strong></div></div>
+      <div class="top-actions"><span class="date-label muted small-text" id="today-label"></span><div class="avatar" id="avatar">S</div></div>
+    </header>
+    <main class="page-content">
+      <div class="page-heading"><div><div class="eyebrow" id="semester"></div><h1>Notes & Journal</h1><p>Keep revision notes and learning reflections together.</p></div></div>
+      <div id="global-message" class="notice hidden" role="status"></div>
+<div class="grid two-col">
+  <section class="card"><div class="section-row"><h2>Your notes</h2><span class="pill" id="note-count"></span></div><div id="notes-list"></div></section>
+  <section class="card">
+    <h2 id="note-form-title">Write a note</h2>
+    <form id="note-form" class="stack">
+      <input type="hidden" id="note-id">
+      <div class="field"><label for="note-title">Title *</label><input id="note-title" required placeholder="e.g. Binary search trees"></div>
+      <div class="field"><label for="note-course">Related course</label><select id="note-course"><option value="">General note</option></select></div>
+      <div class="field"><label for="note-body">Note *</label><textarea id="note-body" required style="min-height:210px" placeholder="Write your notes here..."></textarea></div>
+      <div class="form-actions"><button class="button" type="submit">Save note</button><button class="button secondary" type="button" id="note-clear">Clear</button></div>
+    </form>
+  </section>
+</div>
+<template id="tpl-note"><article class="course-card"><div class="course-head"><div><h3 data-b="title"></h3><div class="course-meta" data-b="meta"></div></div><div class="top-actions"><button class="button secondary small" data-note="edit" data-id="">Edit</button><button class="button danger small" data-note="delete" data-id="">Delete</button></div></div><p class="note-card" data-b="body"></p></article></template>
+      <div class="footer-note">StudyFlow · Your data stays in this browser unless you export it.</div>
+    </main>
+  </div>
+</div>
+<template id="tpl-empty"><div class="empty-state"><div class="empty-icon" data-b="icon"></div><strong data-b="title"></strong><span data-b="text"></span></div></template>
+<template id="tpl-session"><div class="item-row"><div><div class="item-title" data-b="title"></div><div class="item-sub" data-b="sub"></div></div><span class="pill green" data-b="dur"></span></div></template>
+</body>
+</html>
